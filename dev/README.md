@@ -8,5 +8,6 @@
 ##### genesis block testing completed succesffuly 
 ### next step is to create the apis and 
 #####                    api test with express 
-// $ node dev/api.js 
+// 
+      $ node dev/api.js 
 ### ![apicall](https://user-images.githubusercontent.com/37848207/183768726-9303d691-70c5-4da9-90e8-b33d3a800138.png)
