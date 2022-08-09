@@ -5,4 +5,8 @@
 
 ###                      this is the genesis block with arbitrary inputs (100 , 0 , 0)
 #### ![genesisblock](https://user-images.githubusercontent.com/37848207/183741805-4d5ee5b8-5c31-480f-a866-e5b0e979f8e1.png)
-##### genesis block testing completed succesffuly  next step is to create the apis ...
+##### genesis block testing completed succesffuly 
+### next step is to create the apis and 
+#####                    api test with express 
+// $ node dev/api.js 
+### ![apicall](https://user-images.githubusercontent.com/37848207/183768726-9303d691-70c5-4da9-90e8-b33d3a800138.png)
