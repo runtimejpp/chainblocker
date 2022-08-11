@@ -12,5 +12,5 @@
 ######      $ node dev/api.js 
 ### ![APITRANS](https://user-images.githubusercontent.com/37848207/184080386-b14f08bf-dda7-4064-9fc4-e74921628de9.png)
 
-##### api tranaction  test completed succesfully 
+#### api tranaction  test completed succesfully using insomnia
 ##### will use npm body parser to implement the blockchain api 
