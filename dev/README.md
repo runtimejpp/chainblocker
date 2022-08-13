@@ -10,5 +10,5 @@
 ### next step is to create the apis and 
 #####                    api test with express 
  
-######      $ node dev/api.js 
-### ![APITRANS](https://user-images.githubusercontent.com/37848207/184080386-b14f08bf-dda7-4064-9fc4-e74921628de9.png)
+###### $ node dev/api.js 
+## ![APITRANS](https://user-images.githubusercontent.com/37848207/184080386-b14f08bf-dda7-4064-9fc4-e74921628de9.png)
