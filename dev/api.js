@@ -7,20 +7,24 @@ const bitcoin = new Blockchain();
 
 // Creating the API end point for the blockchain
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.get("/blockchain", function(req, res) {
-    res.send(bitcoin);
+  res.send(bitcoin);
 
   //res.send("blockchain API Working properly");
 });
 
 // API  endpoint for transactions
 app.post("/transaction", function(req, res) {
+  const blockIndex = bitcoin.createNewTransaction(req.body.amount, req.body.sender, req.body.recipient);
+
+
   console.log(req, body);
   console.log("---------------transactions-------------");
   res.send(`The amount of the transaction is ${req.body.amount} bitcoin.`);
+
 });
 
 // API where new block creation takes place - mining
