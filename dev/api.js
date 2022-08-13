@@ -19,7 +19,7 @@ app.get("/blockchain", function(req, res) {
 // API  endpoint for transactions
 app.post("/transaction", function(req, res) {
   const blockIndex = bitcoin.createNewTransaction(req.body.amount, req.body.sender, req.body.recipient);
-
+  res.json({note: `Transaction will be added in block ${blockIndex}.`});
 
   console.log(req, body);
   console.log("---------------transactions-------------");
