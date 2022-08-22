@@ -1,8 +1,10 @@
 const express = require("express");
 const app = express();
-const bodyParser = require('body-parser');
+const bodyParser = require("body-parser");
 const Blockchain = require("./blockchain");
+const uuid = require("uuid/v1");
 const bitcoin = new Blockchain();
+const nodeAddress = uuid().split("-").join(" ");
 
 
 // Creating the API end point for the blockchain
@@ -12,8 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get("/blockchain", function(req, res) {
   res.send(bitcoin);
-
-  //res.send("blockchain API Working properly");
+  res.send("blockchain API Working properly");
 });
 
 // API  endpoint for transactions
@@ -29,17 +30,29 @@ app.post("/transaction", function(req, res) {
 
 // API where new block creation takes place - mining
 app.get("/mine", function(req, res) {
-  //  console.log("miner");
-  // res.send("Mining API endpoint working properly");
+    const lastBlock = bitcoin.getLastBlock();
+    const previousBlockHash = lastBlock["hash"];
+    const currentBlockData = {
+        transactions: bitcoin.pendingTransaction,
+        index: lastBlock["index"] + 1 
+    };
+    const nonce = bitcoin.proofOfWork(previousBlockHash,currentBlockData);
+    const blockHash = bitcoin.hashBlock(previousBlockHash,currentBlockData,nonce);
+    bitcoin.createNewTransaction(12.5,"00",nodeAddress );
+    const newBlock = bitcoin.createNewBlock(nonce, previousBlockHash, blockHash);
+    // send a response to the sender of the block 
+    res.json({
+      note: "New Block mined successfully",
+      block: newBLock  
+
+    });
 });
 
 // We will know that the server is running when we see the Listening on port 3000...
+
 app.listen(3000, function() {
-  console.log("Listing on port 3000...");
-  console.log(" ")
-  console.log("           ------S----E----R----V----E-----R-------------");
-  console.log("           --------------------I----S---------------------");
-  console.log("           ---------R---U----N----N----I----N----G---------");
+  console.log("*Listening on port 3000. . . ");
+  
 });
 
 
